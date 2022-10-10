@@ -12,6 +12,7 @@ struct Student {
 };
 
 void newStudent(vector<Student*> &studentList);
+void printStudent(vector<Student*> &studentList);
 
 int main() {
   char input[7];
@@ -19,7 +20,7 @@ int main() {
   vector<Student*> studentList;
   
   while (running == true) {
-    cout << "---------------------------------" << endl;
+    cout << "---------------------------------------------------------" << endl;
     cout << "What Would You Like To Do? (ADD/PRINT/DELETE/QUIT/HELP)" << endl;
 
     cin >> input;
@@ -28,7 +29,7 @@ int main() {
       newStudent(studentList);
     }
     else if (strcmp(input, "PRINT") == 0) {
-      //
+      printStudent(studentList);
     }
     else if (strcmp(input, "DELETE") == 0) {
       // 
@@ -72,4 +73,12 @@ void newStudent(vector<Student*> &studentList) {
   addStudent->gpa = gpaTemp;
 
   studentList.push_back(addStudent);
+}
+
+void printStudent(vector<Student*> &studentList) {
+  cout << "Here Are All The Students You've Listed So Far:" << endl;
+
+  for (int i = 0; i < studentList.size(); i++) {
+    cout << studentList.at(i) << ' ' << endl;
+  }
 }
